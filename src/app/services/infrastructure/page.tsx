@@ -1,10 +1,28 @@
 import React from 'react';
 
-// --- Custom SVGs for Infrastructure ---
+// --- Fixed Icons to accept props (className etc) ---
 const Icons = {
-  Truck: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB400" strokeWidth="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>,
-  Globe: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB400" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>,
-  CheckCircle: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+  Truck: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB400" strokeWidth="2" {...props}>
+      <rect x="1" y="3" width="15" height="13"></rect>
+      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+      <circle cx="5.5" cy="18.5" r="2.5"></circle>
+      <circle cx="18.5" cy="18.5" r="2.5"></circle>
+    </svg>
+  ),
+  Globe: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB400" strokeWidth="2" {...props}>
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+  ),
+  CheckCircle: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" {...props}>
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+  )
 };
 
 const InfrastructurePage = () => {
@@ -104,24 +122,24 @@ const InfrastructurePage = () => {
       <section className="py-24 px-6 max-w-[1000px] mx-auto">
         <h2 className="text-3xl font-black uppercase italic mb-12 border-b-4 border-[#FFB400] pb-4 inline-block">Infrastructure Intelligence</h2>
         <div className="space-y-4">
-           {[
-             {q: "Kya aap government projects karte hain?", a: "Ji haan, hum public-private partnerships aur government infrastructure tenders mein active hain."},
-             {q: "Durability ki kya guarantee hai?", a: "Hum Grade-60 steel aur high-pressure concrete use karte hain jo 50+ saal ki life-span ke liye design hote hain."},
-             {q: "Road construction mein kitna waqt lagta hai?", a: "Timeline site ki condition aur terrain par depend karta hai, magar hum on-time delivery ke liye mashhoor hain."}
-           ].map((faq, i) => (
-             <details key={i} className="group bg-gray-50 p-6">
-                <summary className="font-black uppercase italic text-xs cursor-pointer list-none flex justify-between">
-                   {faq.q} <span className="text-[#FFB400] group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="text-gray-500 text-sm mt-4 font-medium">{faq.a}</p>
-             </details>
-           ))}
+            {[
+              {q: "Kya aap government projects karte hain?", a: "Ji haan, hum public-private partnerships aur government infrastructure tenders mein active hain."},
+              {q: "Durability ki kya guarantee hai?", a: "Hum Grade-60 steel aur high-pressure concrete use karte hain jo 50+ saal ki life-span ke liye design hote hain."},
+              {q: "Road construction mein kitna waqt lagta hai?", a: "Timeline site ki condition aur terrain par depend karta hai, magar hum on-time delivery ke liye mashhoor hain."}
+            ].map((faq, i) => (
+              <details key={i} className="group bg-gray-50 p-6">
+                 <summary className="font-black uppercase italic text-xs cursor-pointer list-none flex justify-between">
+                    {faq.q} <span className="text-[#FFB400] group-open:rotate-45 transition-transform">+</span>
+                 </summary>
+                 <p className="text-gray-500 text-sm mt-4 font-medium">{faq.a}</p>
+              </details>
+            ))}
         </div>
       </section>
 
       {/* 14. CALL TO ACTION */}
       <section className="py-32 px-6 bg-[#FFB400] text-center overflow-hidden relative">
-         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none text-[200px] font-black italic whitespace-nowrap">KONTIC MEGA PROJECTS</div>
+         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none text-[200px] font-black italic whitespace-nowrap uppercase">KONTIC MEGA PROJECTS</div>
          <h2 className="text-black text-5xl md:text-7xl font-black uppercase italic mb-10 leading-tight relative z-10">Powering The <br/> Urban Future</h2>
          <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
             <button className="bg-black text-white px-16 py-6 font-black uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all">Submit Tender</button>
