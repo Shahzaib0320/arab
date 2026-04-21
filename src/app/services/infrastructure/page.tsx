@@ -1,8 +1,8 @@
 import React from 'react';
 
-// --- Fixed Icons to accept props (className etc) ---
+// --- Fixed Icons to accept any props (solves the className error) ---
 const Icons = {
-  Truck: (props: React.SVGProps<SVGSVGElement>) => (
+  Truck: (props: any) => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB400" strokeWidth="2" {...props}>
       <rect x="1" y="3" width="15" height="13"></rect>
       <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
@@ -10,14 +10,14 @@ const Icons = {
       <circle cx="18.5" cy="18.5" r="2.5"></circle>
     </svg>
   ),
-  Globe: (props: React.SVGProps<SVGSVGElement>) => (
+  Globe: (props: any) => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB400" strokeWidth="2" {...props}>
       <circle cx="12" cy="12" r="10"></circle>
       <line x1="2" y1="12" x2="22" y2="12"></line>
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
     </svg>
   ),
-  CheckCircle: (props: React.SVGProps<SVGSVGElement>) => (
+  CheckCircle: (props: any) => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" {...props}>
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
       <polyline points="22 4 12 14.01 9 11.01"></polyline>
@@ -32,7 +32,11 @@ const InfrastructurePage = () => {
       {/* 1. PAGE HERO */}
       <section className="relative h-[70vh] flex items-center bg-black overflow-hidden">
         <div className="absolute inset-0">
-           <img src="https://images.unsplash.com/photo-1510672854261-001bc93e96ba?q=80&w=2070" className="w-full h-full object-cover opacity-40 bg-fixed" alt="Infrastructure Hero" />
+           <img 
+             src="https://images.unsplash.com/photo-1510672854261-001bc93e96ba?q=80&w=2070" 
+             className="w-full h-full object-cover opacity-40 bg-fixed" 
+             alt="Infrastructure Hero" 
+           />
         </div>
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 w-full">
            <span className="text-[#FFB400] font-black uppercase tracking-[0.5em] text-xs">Mega Projects Division</span>
